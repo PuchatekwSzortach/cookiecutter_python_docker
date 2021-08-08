@@ -1,4 +1,5 @@
 # syntax = docker/dockerfile:experimental
+FROM {{ cookiecutter.base_docker_image }}
 
 # Install python environment
 COPY ./requirements.txt /tmp/requirements.txt
