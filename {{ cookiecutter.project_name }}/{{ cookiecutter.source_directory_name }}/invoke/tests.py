@@ -20,7 +20,7 @@ def static_code_analysis(context):
     :param context: invoke.Context instance
     """
 
-    directories = "net tests"
+    directories = "{{ cookiecutter.base_docker_image }} tests"
 
     context.run("pycodestyle {}".format(directories), echo=True)
     context.run("xenon . --max-absolute B", echo=True)
@@ -94,9 +94,9 @@ def inserts_count_check(context):
 
             additions_count += len(additions)
 
-    threshold = 300
+    threshold = 400
 
-    print(f"Inserts between origin/master and HEAD: {additions_count}/{threshold}")
+    print(f"Inserts between origin/main and HEAD: {additions_count}/{threshold}")
 
     if additions_count > threshold:
 
