@@ -20,7 +20,7 @@ def static_code_analysis(context):
     :param context: invoke.Context instance
     """
 
-    directories = "{{ cookiecutter.base_docker_image }} tests"
+    directories = "{{ cookiecutter.source_directory_name }} tests"
 
     context.run("pycodestyle {}".format(directories), echo=True)
     context.run("xenon . --max-absolute B", echo=True)
